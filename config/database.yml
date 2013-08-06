@@ -1,0 +1,14 @@
+test:
+  adapter: postgresql
+  database: cleanfridge_test
+  host: localhost
+
+development:
+  adapter: postgresql
+  database: cleanfridge_dev
+  host: localhost
+
+production:
+  adapter: postgresql
+  database: cleanfridge_prod
+  host: localhost
