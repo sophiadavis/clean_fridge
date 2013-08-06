@@ -1,3 +1,6 @@
+This is the CleanFridge App. It helps you clean out your fridge.
+~ Sophia Davis
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
