@@ -3,9 +3,12 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'pg'
 gem 'jquery-rails', '2.0.2'
+gem 'bootstrap-sass', '2.0.0'
+gem 'bcrypt-ruby', '3.0.1'
 
-group :development, :test do
-	gem 'rspec-rails', '2.9.0'
+group :development do
+	gem 'annotate'
+	gem "rails-erd"
 end
 
 group :assets do
@@ -20,6 +23,7 @@ end
 
 group :test do
 	gem 'capybara', '1.1.2'
+	gem 'rspec-rails', '2.9.0'
 end
 
 # To use ActiveModel has_secure_password

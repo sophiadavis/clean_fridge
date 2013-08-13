@@ -1,0 +1,14 @@
+<h1>CLEAN YOUR FRIDGE</h1>
+
+Welcome, <%= @user.name %>!
+
+<% if @user.foods.any? %>
+	You currently have <%= pluralize(@foods.count, "item") %> in your fridge:
+	<ul>
+		<%= render @foods %>
+	</ul>
+<% else %>
+	Your fridge is empty.
+<% end %>
+
+<%= render 'shared/food_form' %>
