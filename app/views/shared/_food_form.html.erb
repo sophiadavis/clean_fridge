@@ -1,7 +1,7 @@
 <%= form_for :food, url: {controller: "foods", action: :create} do |form| %>
 
 	<%= form.label :name, "Add item to fridge: " %>
-	<%= form.text_field :name %>
+	<%= form.text_field :name, autofocus: true %>
 
 	<%= form.submit "Add", class: "btn btn-large btn-primary" %>
 

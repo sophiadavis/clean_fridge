@@ -1,15 +1,26 @@
-<% provide(:title, "Sign in") %>
-<h1>Sign in</h1>
+<div class="container-fluid">
+	<% provide(:title, "Sign in") %>
+	<h1>Sign in</h1>
+	<div class="row">
+		<div class="span3">
+			<%= form_for(:session, url: sessions_path)  do |form| %>
 
-<%= form_for(:session, url: sessions_path)  do |form| %>
-
-	<%= form.label :username, "Username:" %>
-	<%= form.text_field :username %>
+				<%= form.label :username, "Username:" %>
+				<%= form.text_field :username, autofocus: true %>
 	
-	<%= form.label :password, "Password: " %>
-	<%= form.password_field :password %>
-	
-	<%= form.submit "Sign in", class: "btn btn-large btn-primary" %>
-<% end %>
-
-New to CleanFridge? <%= link_to "Sign up now!", signup_path %>
+				<%= form.label :password, "Password: " %>
+				<%= form.password_field :password %>
+				<div class="center">
+					<%= form.submit "Sign in", class: "btn btn-large btn-primary" %>
+				</div>
+			<% end %>
+		</div>
+		
+		<div class="span6">
+			<h2>CleanFridge is awesome.</h2>
+		</div>
+	</div>
+	<div class="bottom">
+		New to CleanFridge? <%= link_to "Sign up now!", signup_path %>
+	</div>
+</div>

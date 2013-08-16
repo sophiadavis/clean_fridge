@@ -11,3 +11,6 @@
 <% @foods.each do |food| %>
 	<li><%= food.name %> <%= link_to "gone?", food, method: :delete, confirm: "Delete #{food.name}?" %></li>
 <% end %>
+
+
+<td><%= link_to "gone?", food, method: :delete, confirm: "Delete #{food.name}?", class: "btn btn-mini" %></td>

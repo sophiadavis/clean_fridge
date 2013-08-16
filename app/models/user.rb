@@ -11,7 +11,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :username, :password, :password_confirmation
+  attr_accessible :email, :name, :username, :password, :password_confirmation, :delete_count
   has_secure_password
   
   has_many :fridges, dependent: :destroy
@@ -30,8 +30,17 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
   
+#   def increment_delete_count
+#   	self.delete_count += 1
+#   	
+#   end
+  
+#   private
+#   	def create_remember_token
+# 		self.remember_token = SecureRandom.urlsafe_base64
+#   	end
   private
   	def create_remember_token
-  		self.remember_token = SecureRandom.urlsafe_base64
+		self.remember_token = SecureRandom.urlsafe_base64
   	end
 end

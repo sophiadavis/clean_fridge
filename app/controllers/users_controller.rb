@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
+
+before_filter :signed_in_user, except: [:new, :create]
+
   def new
   	@user = User.new(params[:user])
   end
   
   def create
   	@user = User.new(params[:user])
+  	@user.delete_count = 0
   	if @user.save
   		sign_in @user
   		@fridge = @user.fridges.create(name: "My Fridge")

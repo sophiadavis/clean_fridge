@@ -1,22 +1,26 @@
-<% provide(:title, "CleanFridge") %>
-<h1>CleanFridge</h1>
-
-<% if signed_in? %>
-
-	Welcome, <%= current_user.name %>!
-
-
-
-	You currently have <%= pluralize(@fridge.foods.count, "item") %> in your fridge:
-	<ul>
-	<% @fridge.foods.each do |food| %>
-		<li><%= food.name %></li>
+<div class="container center hero-unit">
+	<% if signed_in? %>
+		<div class="row">
+			<div class="span6">
+				<p>Welcome, <%= current_user.name %>!</p>
+			</div>
+			<div class="span6">
+				<p>You currently have <%= pluralize(@fridge.foods.count, "item") %> in your fridge:</p>
+				<ul class="home">
+				<% @fridge.foods.each do |food| %>
+					<li><%= food.name %></li>
+				<% end %>
+				</ul>
+			</div>
+		</div>
+		<div class="container">
+			<p>Go to <%= link_to "my profile", current_user %>.</p>
+		</div>
+	<% else %>
+		<div class="container bottom">
+			<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+		</div>
 	<% end %>
-	</ul>
-	
-	Go to <%= link_to "my profile", current_user %>.
 
-<% else %>
-	<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-<% end %>
+</div>
 
