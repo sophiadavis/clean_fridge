@@ -6,6 +6,7 @@ gem 'jquery-rails', '2.0.2'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'dotiw', '~> 1.1.1'
 gem 'debugger'
+gem 'httparty'
 
 
 group :development do
