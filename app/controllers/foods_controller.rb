@@ -30,7 +30,7 @@ class FoodsController < ApplicationController
   def show
     @food = Food.find_by_id(params[:id])
     @recipes = search @food.name
-    @recipe = @recipes.first
+#     @recipe = @recipes.first
     render 'recipes/show'
   end
   

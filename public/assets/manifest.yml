@@ -1,10 +1,12 @@
 ---
 rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
+user_placeholder.jpg: user_placeholder-ebd5fea177b2864b90e708272c909384.jpg
+user_placeholder/index.jpg: user_placeholder-ebd5fea177b2864b90e708272c909384.jpg
 application.js: application-a1b815d9d1c1aefee7af5b1011e052c6.js
 application/index.js: application-a1b815d9d1c1aefee7af5b1011e052c6.js
-application.css: application-852dd4d09d3eb97a8d83bf99631314c5.css
-application/index.css: application-852dd4d09d3eb97a8d83bf99631314c5.css
+application.css: application-7638450c8a9668d21a8771b15620f955.css
+application/index.css: application-7638450c8a9668d21a8771b15620f955.css
 glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings-white/index.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings.png: glyphicons-halflings-2851b489e8c39f8fad44fc10efb99c3e.png
