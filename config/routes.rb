@@ -2,6 +2,7 @@ CleanFridge::Application.routes.draw do
   
   resources :fridges
   resources :foods
+  resources :recipes
   resources :users
   
   resources :sessions, only: [:new, :create, :destroy]

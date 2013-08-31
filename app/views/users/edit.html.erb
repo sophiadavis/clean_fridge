@@ -1,7 +1,7 @@
-<% provide(:title, 'Sign up') %>
+<% provide(:title, 'Edit Account') %>
 
 <div class="container-fluid">
-    <h1>Sign up</h1>
+    <h1>Update my account</h1>
     <div class="row">
         <div class="span3 offset2">
             <%= form_for @user do |form| %>	
@@ -22,7 +22,7 @@
                 <%= form.label :password_confirmation, "Confirm your password:" %>
                 <%= form.password_field :password_confirmation %>
             
-                <div class="center"><%= form.submit "Create my account", class: "btn btn-large btn-primary" %></div>
+                <div class="center"><%= form.submit "Update", class: "btn btn-large btn-primary" %></div>
             <% end%>
         </div>
     </div>

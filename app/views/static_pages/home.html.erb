@@ -1,8 +1,10 @@
+<% provide(:title, "Home") %>
+
 <div class="container center hero-unit">
 	<% if signed_in? %>
 		<div class="row">
 			<div class="span6">
-				<p>Welcome, <%= current_user.name %>!</p>
+				<p>Welcome, <%= current_user.name.capitalize %>!</p>
 			</div>
 			<div class="span6">
 				<p>You currently have <%= pluralize(@fridge.foods.count, "item") %> in your fridge:</p>
@@ -18,7 +20,10 @@
 		</div>
 	<% else %>
 		<div class="container bottom">
-			<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+		    <h1 class="center">Welcome to CleanFridge</h1>
+		    <h3><%= link_to "Sign in", signup_path %> to view your fridge.</h3><br>
+		    or<br><br>
+			<div><%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %></div><br>
 		</div>
 	<% end %>
 

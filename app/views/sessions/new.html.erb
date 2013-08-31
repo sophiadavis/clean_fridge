@@ -1,8 +1,9 @@
+<% provide(:title, "Sign in") %>
+
 <div class="container-fluid">
-	<% provide(:title, "Sign in") %>
 	<h1>Sign in</h1>
 	<div class="row">
-		<div class="span3">
+		<div class="span4 offset2 center">
 			<%= form_for(:session, url: sessions_path)  do |form| %>
 
 				<%= form.label :username, "Username:" %>
@@ -13,14 +14,13 @@
 				<div class="center">
 					<%= form.submit "Sign in", class: "btn btn-large btn-primary" %>
 				</div>
-			<% end %>
-		</div>
-		
-		<div class="span6">
+			<% end %>		
+            <div class="bottom">
+                New to CleanFridge? <%= link_to "Sign up now!", signup_path %>
+            </div>
+        </div>
+		<div class="span6 offset1">
 			<h2>CleanFridge is awesome.</h2>
 		</div>
-	</div>
-	<div class="bottom">
-		New to CleanFridge? <%= link_to "Sign up now!", signup_path %>
 	</div>
 </div>
