@@ -1,0 +1,16 @@
+<h1>Recipes containing "<%= @food.name %>": </h1>
+    <% @recipes.each do |recipe| %>
+        <p>
+            <span><img src="<%= recipe["smallImageUrls"].first %>" alt="<%= recipe["recipeName"] %>" height="42" width="42"></span>
+            <span><%= recipe["recipeName"] %> </span>
+            <div>
+                <span>
+                    contains: <% recipe["ingredients"].each do |i|  %>
+                        <span><%= i %>, </span>
+                    <% end %>
+                </span>
+                <div>cook time: <%= recipe["totalTimeInSeconds"] %> seconds, <//div>
+            </div>
+        </p>
+
+    <% end %>
