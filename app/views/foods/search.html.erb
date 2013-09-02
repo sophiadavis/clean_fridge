@@ -1,16 +1,19 @@
 <h1>Recipes containing "<%= @food.name %>": </h1>
+<div class="content">
     <% @recipes.each do |recipe| %>
-        <p>
-            <span><img src="<%= recipe["smallImageUrls"].first %>" alt="<%= recipe["recipeName"] %>" height="42" width="42"></span>
-            <span><%= recipe["recipeName"] %> </span>
-            <div>
-                <span>
-                    contains: <% recipe["ingredients"].each do |i|  %>
-                        <span><%= i %>, </span>
-                    <% end %>
-                </span>
-                <div>cook time: <%= recipe["totalTimeInSeconds"] %> seconds, <//div>
+        <div class="entry">
+            <div class="info">
+                <%= image_tag(recipe["smallImageUrls"].first, alt: recipe["recipeName"], width: 100) %>
+                <h2><%= link_to recipe["recipeName"], find_recipe_path(recipe["id"]) %></h2>
             </div>
-        </p>
-
+            <p>
+                Ingredients: <% recipe["ingredients"].each do |i|  %>
+                    <span><%= i %>, </span>
+                <% end %>
+                <div>
+                    <p><%= "Total cook time: #{ distance_of_time(recipe["totalTimeInSeconds"].to_i) }" if recipe["totalTimeInSeconds"] %></p>
+                </div>
+            </p>
+        </div>
     <% end %>
+</div>

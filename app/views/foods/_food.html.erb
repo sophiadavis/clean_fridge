@@ -2,6 +2,6 @@
 	<td><%= link_to raw('<i class="icon-trash"></i>'), food, method: :delete, confirm: "Remove #{food.name} from fridge?", class: "btn btn-mini" %></td>
 	<td class="not-centered"><%= food.name %></td>
 	<td class="not-centered"><%= l food.created_at, format: "%m-%d-%Y at %I:%m %p" %></td>
-	<td><%= link_to raw('<i class="icon-search"></i>'), { controller: "foods", action: "search", name: food.name } %></td>
+	<td><%= link_to raw('<i class="icon-search"></i>'), search_recipes_path(food.name) %></td>
 
 </tr>
