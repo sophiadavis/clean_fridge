@@ -39,19 +39,9 @@ class FoodsController < ApplicationController
     yummly_id = 'c98ec941'
     yummly_key = '247edfa1dcf5b60179db7c5333497f42'
     url = "http://api.yummly.com/v1/api/recipes?_app_id=#{yummly_id}&_app_key=#{yummly_key}&q=&allowedIngredient[]=#{@food.name}" 
-    response = HTTParty.get(url, headers: {"X-Yummly-App-ID" => yummly_id, "X-Yummly-App-Key"=>yummly_key}).body
+    response = HTTParty.get(url, headers: {"X-Yummly-App-ID" => yummly_id, "X-Yummly-App-Key"=> yummly_key}).body
     @recipes = ActiveSupport::JSON.decode(response)["matches"] 
-  end
-  
-  def findRecipe
-    yummly_id = 'c98ec941'
-    yummly_key = '247edfa1dcf5b60179db7c5333497f42'
-    url = "http://api.yummly.com/v1/api/recipe/#{recipe_id}"
-    response = HTTParty.get(url, headers: {"X-Yummly-App-ID" => yummly_id, "X-Yummly-App-Key"=>yummly_key}).body
-    @recipe = ActiveSupport::JSON.decode(response)
-  end
-end 
-#             an array of hashes
+    #             an array of hashes
 #             each hash has these keys:
 #                             attributes, 
 #                             flavors, 
@@ -62,3 +52,18 @@ end
 #                             totalTimeInSeconds,
 #                             ingredients,
 #                             recipeName
+  end
+  
+  def findRecipe
+    recipe_id = params[:recipe_id]
+    yummly_id = 'c98ec941'
+    yummly_key = '247edfa1dcf5b60179db7c5333497f42'
+    url = "http://api.yummly.com/v1/api/recipe/#{recipe_id}"
+    response = HTTParty.get(url, headers: {"X-Yummly-App-ID" => yummly_id, "X-Yummly-App-Key" => yummly_key}).body
+    @recipe = ActiveSupport::JSON.decode(response)
+        # hash w keys "attribution", "ingredientLines", "flavors", "nutritionEstimates", 
+        # "images", "name", "yield", "totalTime", "attributes", "totalTimeInSeconds", 
+        # "rating", "numberOfServings", "source", "id" 
+    render 'view_recipe'
+  end
+end 

@@ -20,8 +20,9 @@ CleanFridge::Application.routes.draw do
   get "static_pages/about"
   get "static_pages/contact"
   
-  get 'foods/search/:name', to: 'foods#search', as: :search_recipes
-  match 'foods/search_recipes/:name' => 'foods#search', as: :search_recipes
+  get 'foods/search_recipes/:name', to: 'foods#search', as: :search_recipes
+
+  get 'foods/find_recipe/:recipe_id', to: 'foods#findRecipe', as: :find_recipe
   
   match '/help', to: 'static_pages#help'
   match '/about', to: 'static_pages#about'
