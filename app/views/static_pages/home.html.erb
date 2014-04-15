@@ -4,7 +4,8 @@
 	<% if signed_in? %>
 		<div class="row">
 			<div class="span6">
-				<p>Welcome, <%= current_user.name.capitalize %>!</p>
+				<p>Welcome, <%= @user.name.capitalize %>!</p>
+				<%= image_tag @user.avatar_url(:thumb) if @user.avatar_url %>
 			</div>
 			<div class="span6">
 				<p>You currently have <%= pluralize(@fridge.foods.count, "item") %> in your fridge:</p>
