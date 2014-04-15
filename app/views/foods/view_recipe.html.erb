@@ -16,9 +16,9 @@
                         <li><%= i %></li>
                     <% end %>
                 </ul>
-                <p>Yield: <%= @recipe["yield"] %></p>
-                <p>Total cook time: <%= distance_of_time(@recipe["totalTimeInSeconds"].to_i) %></p>
-                <p>Rating: <%= @recipe["rating"] %>/5</p>
+                <p><%= "Yield: #{ @recipe["yield"] }" unless @recipe["yield"].empty? %></p>
+                <p><%= "Total cook time: #{ distance_of_time(@recipe["totalTimeInSeconds"].to_i) }" unless @recipe["totalTimeInSeconds"].nil? %></p>
+                <p><%= "Rating: #{ @recipe["rating"] }/5" unless @recipe["rating"].nil? %></p>
                 <p>
                     Tags:
                     <% if @recipe["attributes"].empty? %>
@@ -37,7 +37,7 @@
                             <% end %>
                             <% if @recipe["attributes"]["holiday"] %>    
                                 <% @recipe["attributes"]["holiday"].each do |h| %>
-                                    <li><%= c %></li>
+                                    <li><%= h %></li>
                                 <% end %>
                             <% end %>
                         </ul>
@@ -52,7 +52,7 @@
         <div class="span6 offset1">
         </div>
     </div>
-    <div class="row center">
+    <div class="row center bottom">
         <div class="span6">
             Information powered by <%= image_tag(@recipe["attribution"]["logo"], alt: "Yummly logo") %></p>
         </div>

@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(:version => 20130815130247) do
     t.datetime "expiration_date"
   end
 
+  add_index "foods", ["user_id", "fridge_id"], :name => "index_foods_on_user_id_and_fridge_id"
+
   create_table "fridges", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
