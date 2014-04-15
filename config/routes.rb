@@ -5,7 +5,7 @@ CleanFridge::Application.routes.draw do
   get "recipes/show"
 
   resources :fridges
-  resources :foods
+  resources :foods, only: [:new, :create, :destroy]
   resources :recipes
   resources :users
   
@@ -21,7 +21,9 @@ CleanFridge::Application.routes.draw do
   get "static_pages/contact"
   
   get 'foods/search_recipes/:name', to: 'foods#search', as: :search_recipes
-
+  ## don't break everything
+  get 'foods/search', to: 'foods#search_multiple'
+  
   get 'foods/find_recipe/:recipe_id', to: 'foods#findRecipe', as: :find_recipe
   
   match '/help', to: 'static_pages#help'

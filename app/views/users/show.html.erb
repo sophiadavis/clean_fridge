@@ -19,7 +19,10 @@
                             </thead>
                             <tbody>
                                 <div id="foods">
-                                    <%= render @foods %>
+                                	<%= form_tag({controller: "foods", action: "search_multiple"}, method: "get") do %>
+                                    	<%= render @foods %>
+										<%= submit_tag("Search") %>
+                                    <% end %>
                                 </div>
                             </tbody>
                     </table>

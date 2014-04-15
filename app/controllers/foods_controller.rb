@@ -55,6 +55,14 @@ class FoodsController < ApplicationController
 #                             recipeName
   end
   
+  def search_multiple
+    #foods = params[:foods]
+    puts "----->Search"
+    #puts foods
+    redirect_to current_user
+    
+  end
+  
   def findRecipe
     recipe_id = params[:recipe_id]
     yummly_id = 'c98ec941'
