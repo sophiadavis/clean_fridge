@@ -6,7 +6,7 @@
             <%= image_tag("user_placeholder.jpg", width: 100, height: 100) %>
             <p><%= @user.name %></p>
             <p>CleanFridge user for <%= distance_of_time_in_words(@user.created_at, DateTime.now) %>.</p>
-            <p>You've cleaned a total of <%= @user.delete_count %> items from your fridge.</p>
+            <p>You've cleaned a total of <%= pluralize(@user.delete_count, "item") %> from your fridge.</p>
         </div>
         <div class="span6">
             <p>

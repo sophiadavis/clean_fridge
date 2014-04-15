@@ -8,7 +8,7 @@
             </div>
             <p>
                 Ingredients: <% recipe["ingredients"].each do |i|  %>
-                    <span><%= i %>, </span>
+                    <span><%= i != recipe["ingredients"].last ? "#{i}, " : i %></span>
                 <% end %>
                 <div>
                     <p><%= "Total cook time: #{ distance_of_time(recipe["totalTimeInSeconds"].to_i) }" if recipe["totalTimeInSeconds"] %></p>

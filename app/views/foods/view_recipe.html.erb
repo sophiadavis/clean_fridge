@@ -18,31 +18,6 @@
                 </ul>
                 <p><%= "Yield: #{ @recipe["yield"] }" unless @recipe["yield"].empty? %></p>
                 <p><%= "Total cook time: #{ distance_of_time(@recipe["totalTimeInSeconds"].to_i) }" unless @recipe["totalTimeInSeconds"].nil? %></p>
-                <p><%= "Rating: #{ @recipe["rating"] }/5" unless @recipe["rating"].nil? %></p>
-                <p>
-                    Tags:
-                    <% if @recipe["attributes"].empty? %>
-                        none
-                    <% else %>
-                        <ul>
-                            <% if @recipe["attributes"]["course"] %>
-                                <% @recipe["attributes"]["course"].each do |c| %>
-                                    <li><%= c %></li>
-                                <% end %>
-                            <% end %>
-                            <% if @recipe["attributes"]["cuisine"] %>
-                                <% @recipe["attributes"]["cuisine"].each do |c| %>
-                                    <li><%= c %></li>
-                                <% end %>
-                            <% end %>
-                            <% if @recipe["attributes"]["holiday"] %>    
-                                <% @recipe["attributes"]["holiday"].each do |h| %>
-                                    <li><%= h %></li>
-                                <% end %>
-                            <% end %>
-                        </ul>
-                    <% end %>
-                </p>
             </div>
         </div>
     </div>
