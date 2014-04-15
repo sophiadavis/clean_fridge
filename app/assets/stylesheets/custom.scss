@@ -121,3 +121,22 @@ p {
         /*color: $darkBlue;*/
     }
 }
+
+/* forms */
+.check_box {
+	display: inline-block;
+	
+	label {
+		float: left;
+	}
+	
+	span.remove_avatar {
+		position: relative;
+		
+		&.box {
+			float: right;
+			padding-left: 5px;
+		}
+	}
+
+}

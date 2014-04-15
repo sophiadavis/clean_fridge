@@ -11,7 +11,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :username, :password, :password_confirmation, :delete_count
+  attr_accessible :email, :name, :username, :password, :password_confirmation, :delete_count, :avatar, :avatar_cache, :remove_avatar
   has_secure_password
   
   has_many :fridges, dependent: :destroy
@@ -29,6 +29,8 @@ class User < ActiveRecord::Base
   validates :username, presence: true, length: { maximum: 50 }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+  
+  mount_uploader :avatar, AvatarUploader
   
 #   def increment_delete_count
 #   	self.delete_count += 1
