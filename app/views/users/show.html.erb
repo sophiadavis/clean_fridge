@@ -2,8 +2,7 @@
 <div class="content">
     <div class="row">
         <div class="span6">
-            <p>CLEAN YOUR FRIDGE</p>
-            <%= @user.avatar ? image_tag(@user.avatar.thumb.url) : image_tag("user_placeholder.jpg", width: 100, height: 100)%>
+            <%= @user.avatar_url ? image_tag(@user.avatar.thumb.url) : image_tag("user_placeholder.jpg", width: 100, height: 100)%>
             <p><%= @user.name %></p>
             <p>CleanFridge user for <%= distance_of_time_in_words(@user.created_at, DateTime.now) %>.</p>
             <p>You've cleaned a total of <%= pluralize(@user.delete_count, "item") %> from your fridge.</p>

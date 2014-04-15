@@ -19,11 +19,13 @@
                     <%= image_tag(@user.avatar_url) if @user.avatar? %>
                     <%= form.file_field :avatar %>
                     <%= form.hidden_field :avatar_cache %>
-                         
-                	<div class="check_box">               
-						<span class="remove_avatar"><%= form.label :remove_avatar, "Remove image? "%></span>
-						<span class="remove_avatar box"><%= form.check_box :remove_avatar %></span>
-					</div>
+					
+					<%- if @user.avatar_url %>                         
+						<div class="check_box">               
+							<span class="remove_avatar"><%= form.label :remove_avatar, "Remove image? "%></span>
+							<span class="remove_avatar box"><%= form.check_box :remove_avatar %></span>
+						</div>
+					<% end %>
             
                     <%= form.label :password, "Password: " %>
                     <%= form.password_field :password %>
