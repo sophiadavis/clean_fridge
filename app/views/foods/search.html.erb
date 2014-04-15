@@ -1,19 +1,23 @@
 <h1>Recipes containing "<%= @food.name %>": </h1>
 <div class="content">
-    <% @recipes.each do |recipe| %>
-        <div class="entry">
-            <div class="info">
-                <%= image_tag(recipe["smallImageUrls"].first, alt: recipe["recipeName"], width: 100) %>
-                <h2><%= link_to recipe["recipeName"], find_recipe_path(recipe["id"]) %></h2>
-            </div>
-            <p>
-                Ingredients: <% recipe["ingredients"].each do |i|  %>
-                    <span><%= i != recipe["ingredients"].last ? "#{i}, " : i %></span>
-                <% end %>
-                <div>
-                    <p><%= "Total cook time: #{ distance_of_time(recipe["totalTimeInSeconds"].to_i) }" if recipe["totalTimeInSeconds"] %></p>
-                </div>
-            </p>
-        </div>
-    <% end %>
+	<% if @recipes.length > 0 %>
+		<% @recipes.each do |recipe| %>
+			<div class="entry">
+				<div class="info">
+					<%= image_tag(recipe["smallImageUrls"].first, alt: recipe["recipeName"], width: 100) %>
+					<h2><%= link_to recipe["recipeName"], find_recipe_path(recipe["id"]) %></h2>
+				</div>
+				<p>
+					Ingredients: <% recipe["ingredients"].each do |i|  %>
+						<span><%= i != recipe["ingredients"].last ? "#{i}, " : i %></span>
+					<% end %>
+					<div>
+						<p><%= "Total cook time: #{ distance_of_time(recipe["totalTimeInSeconds"].to_i) }" if recipe["totalTimeInSeconds"] %></p>
+					</div>
+				</p>
+			</div>
+		<% end %>
+	<% else %>
+		<h1>No recipes found.</h1>
+	<% end %>
 </div>
