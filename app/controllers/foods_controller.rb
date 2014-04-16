@@ -1,12 +1,9 @@
 class FoodsController < ApplicationController
-   require 'recipe.rb'  #  DO I NEED THIS??
-#   respond_to :html, :js
 
   def create
   	@user = current_user
   	@food = @user.fridges.first.foods.build(params[:food])
   	flash[:success] = "You have added 1 item to your fridge!"
-#   	respond_with @user
 	if @food.save
   		flash[:success] = "You have added 1 item to your fridge!"
   		redirect_to @food.fridge.user
@@ -27,13 +24,6 @@ class FoodsController < ApplicationController
 	redirect_to @user
   end
  
-#   def show
-#     @food = Food.find_by_id(params[:id])
-#     @recipes = search @food.name
-# #     @recipe = @recipes.first
-#     render 'recipes/index'
-#   end
-
   def search
     search_ids = params[:search_ids]
     query = '&allowedIngredient[]='
