@@ -1,6 +1,6 @@
 <tr>
 	<td><%= link_to raw('<i class="icon-trash"></i>'), food, method: :delete, confirm: "Remove #{food.name} from fridge?", class: "btn btn-mini" %></td>
 	<td class="not-centered"><%= food.name %></td>
-	<td class="not-centered"><%= l food.created_at, format: "%m-%d-%Y at %I:%m %p" %></td>
-	<td><%= check_box_tag "search_ids[#{food.id}]", food.id %></td>
+	<td class="centered"><%= l food.created_at, format: "%_m-%d-%Y" %></td>
+	<td class="not-centered"><%= check_box_tag "search_ids[#{food.id}]", food.id %></td>
 </tr>
