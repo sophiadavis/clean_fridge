@@ -12,20 +12,21 @@
                 <% if @user.foods.any? %>
                     You currently have <%= pluralize(@foods.count, "item") %> in your fridge:
                     <table class="table-bordered">
+                        <%= form_tag({controller: "foods", action: "search"}, method: "get") do %>
                             <thead>
                                 <tr>
-                                    <th>gone?</th><th>name</th><th>date added</th><th>search recipes</th>
+                                    <th>gone?</th><th>name</th><th>date added</th><th><%= submit_tag "search recipes", class: "btn btn-link" %></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <div id="foods">
                                 	<% @search_ids = Array.new %>
-                                	<%= form_tag({controller: "foods", action: "search"}, method: "get") do %>
+                                	
                                     	<%= render @foods, search_ids: @search_ids %>
-										<%= submit_tag("Search") %>
-                                    <% end %>
+                                    
                                 </div>
                             </tbody>
+                        <% end %>
                     </table>
                 <% else %>
                     Your fridge is empty.
