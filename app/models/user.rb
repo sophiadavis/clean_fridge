@@ -32,15 +32,6 @@ class User < ActiveRecord::Base
   
   mount_uploader :avatar, AvatarUploader
   
-#   def increment_delete_count
-#   	self.delete_count += 1
-#   	
-#   end
-  
-#   private
-#   	def create_remember_token
-# 		self.remember_token = SecureRandom.urlsafe_base64
-#   	end
   private
   	def create_remember_token
 		self.remember_token = SecureRandom.urlsafe_base64
