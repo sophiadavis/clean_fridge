@@ -1,4 +1,11 @@
-<h1>Recipes containing "<%= @food.name %>": </h1>
+<h1>Results:</h1>
+<div class="center">
+	<p>Recipes including: 
+		<% @foods.each do |f|  %>
+			<span><%= f != @foods.last ? "#{f.name}, " : f.name %></span>
+		<% end %>
+	</p>
+</div>
 <div class="content">
 	<% if @recipes.length > 0 %>
 		<% @recipes.each do |recipe| %>

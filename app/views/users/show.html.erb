@@ -19,8 +19,9 @@
                             </thead>
                             <tbody>
                                 <div id="foods">
-                                	<%= form_tag({controller: "foods", action: "search_multiple"}, method: "get") do %>
-                                    	<%= render @foods %>
+                                	<% @search_ids = Array.new %>
+                                	<%= form_tag({controller: "foods", action: "search"}, method: "get") do %>
+                                    	<%= render @foods, search_ids: @search_ids %>
 										<%= submit_tag("Search") %>
                                     <% end %>
                                 </div>

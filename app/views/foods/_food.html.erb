@@ -3,5 +3,5 @@
 	<td class="not-centered"><%= food.name %></td>
 	<td class="not-centered"><%= l food.created_at, format: "%m-%d-%Y at %I:%m %p" %></td>
 	<td><%= link_to raw('<i class="icon-search"></i>'), search_recipes_path(food.name) %></td>
-	<td><%= check_box_tag(:food) %></td>
+	<td><%= check_box_tag "search_ids[#{food.id}]", food.id %></td>
 </tr>
